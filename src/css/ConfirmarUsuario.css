@@ -1,0 +1,22 @@
+@import url("../css/Global.css");
+
+* {
+  margin: 0px;
+  font-family: Inter-Italic-VariableFont_opsz;
+}
+
+body {
+  background: var(--preto);
+}
+
+#top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#top #tilte {
+  font-size: 36px;
+  color: var(--Laranja);
+}
