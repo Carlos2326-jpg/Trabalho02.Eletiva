@@ -2,7 +2,7 @@
 
 * {
   margin: 0px;
-  font-family: Inter-Italic-VariableFont_opsz;
+  font-family: url("../fonts/Inter-VariableFont_opsz\,wght.ttf");
 }
 
 body {
@@ -16,7 +16,26 @@ body {
   align-items: center;
 }
 
-#top #tilte {
+#top #title {
+  margin-top: 25px;
   font-size: 36px;
   color: var(--Laranja);
+}
+
+#section-menu{
+  display: flex;
+  justify-content: center;
+}
+
+#section-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--barnco);
+  opacity: 20%;
+  width: 600px;
+  height: 500px;
+  border: 1px solid var(--Azul);
+  border-radius: 20px;
+  box-shadow: -1 4 30 10 var(--Azul);
 }
