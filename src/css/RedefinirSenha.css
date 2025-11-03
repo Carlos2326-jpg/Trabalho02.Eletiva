@@ -113,15 +113,6 @@ header {
   margin-bottom: 20px;
 }
 
-.instructions {
-  text-align: center;
-  margin-bottom: 30px;
-  width: 256.02px;
-  color: var(--branco);
-  font-size: 18px;
-  line-height: 1.5;
-}
-
 .input-group {
   display: flex;
   align-items: center;
