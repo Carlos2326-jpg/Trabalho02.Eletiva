@@ -1,12 +1,4 @@
-:root {
-  --preto: #000000;
-  --branco: #FFFFFF;
-  --Laranja: #FF6B00;
-  --Laranja_hover: #E55A00;
-  --Azul: #0066CC;
-  --Verde_Agua: #00CCCC;
-  --cinza: #CCCCCC;
-}
+@import url(Global.css);
 
 * {
   margin: 0;
@@ -78,7 +70,6 @@ header {
 
 .form-container {
   background-color: #2e2e2ed3;
-  
   width: 600px;
   height: 500px;
   border: 1px solid var(--Azul);

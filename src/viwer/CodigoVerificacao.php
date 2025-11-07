@@ -1,10 +1,16 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/CodigoVerificação.css">
+    <link rel="stylesheet" href="../css/CodigoVerificacao.css">
     <title>Codigo de Verificção</title>
 </head>
 
@@ -29,7 +35,8 @@
                 <div class="form-content">
 
                     <p class="instructions">
-                        Enviamos um código de 6 dígitos para o email cadastrado. Por favor, digite o código recebido:
+                        Enviamos um código de 6 dígitos para o email cadastrado.
+                        Por favor, digite o código recebido:
                     </p>
 
                     <p>Não recebeu o código?<a href="" id="link">Reenviar</a></p>

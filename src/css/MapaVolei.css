@@ -1,0 +1,17 @@
+@import url(Global.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,3 +1,6 @@
+<?php
+include("../processos/Conexao.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -33,7 +36,7 @@
                         <img src="../public/icones/conta-de-usuario.png" alt="Ícone de conta" class="input-icon">
 
                         <div class="input-field">
-                            <input type="password" id="username" placeholder=" ">
+                            <input type="password" id="username" name="senha" placeholder=" ">
                             <label for="username">Senha</label>
                         </div>
                     </div>
@@ -42,7 +45,7 @@
                         <img src="../public/icones/conta-de-usuario.png" alt="Ícone de conta" class="input-icon">
 
                         <div class="input-field">
-                            <input type="password" id="username" placeholder=" ">
+                            <input type="password" id="username" name="$confSenha" placeholder=" ">
                             <label for="username">Confirme a Senha</label>
                         </div>
                     </div>

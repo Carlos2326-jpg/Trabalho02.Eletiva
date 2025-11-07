@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 04-Nov-2025 às 15:01
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Host: localhost
+-- Tempo de geração: 06/11/2025 às 20:35
+-- Versão do servidor: 12.0.2-MariaDB
+-- Versão do PHP: 8.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,208 +24,196 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `diretoria`
+-- Estrutura para tabela `Arena`
 --
 
-CREATE TABLE `diretoria` (
-  `id` int(6) NOT NULL,
-  `presidente` varchar(90) NOT NULL,
-  `diretor` varchar(90) NOT NULL,
-  `tecnico` varchar(90) NOT NULL,
-  `auxiliar` varchar(90) DEFAULT NULL,
-  `preparador` varchar(90) DEFAULT NULL,
-  `fisioterapeuta` varchar(90) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `ginasio`
---
-
-CREATE TABLE `ginasio` (
-  `id` int(6) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `capacidade` bigint(5) NOT NULL,
+CREATE TABLE `Arena` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `capacidade` int(5) NOT NULL,
   `cep` varchar(8) NOT NULL,
-  `cidade` varchar(45) NOT NULL,
   `estado` varchar(2) NOT NULL,
+  `cidade` varchar(45) NOT NULL,
+  `numero` int(4) NOT NULL,
   `bairro` varchar(45) NOT NULL,
   `rua` varchar(45) NOT NULL,
-  `numero` int(4) NOT NULL,
   `instagram` varchar(45) DEFAULT NULL,
   `facebook` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `historico`
+-- Estrutura para tabela `Comissao`
 --
 
-CREATE TABLE `historico` (
-  `id` int(6) NOT NULL,
+CREATE TABLE `Comissao` (
+  `id` int(11) NOT NULL,
+  `presidente` varchar(45) NOT NULL,
+  `diretor` varchar(45) NOT NULL,
+  `tecnico` varchar(45) NOT NULL,
+  `auxiliar` varchar(45) DEFAULT NULL,
+  `preparador_fisico` varchar(45) DEFAULT NULL,
+  `fisioterapeuta` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `Historico`
+--
+
+CREATE TABLE `Historico` (
+  `id` int(11) NOT NULL,
   `titulo` varchar(45) NOT NULL,
-  `posicao` int(1) NOT NULL,
-  `data` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `data` date NOT NULL,
+  `posicao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `identidadeprincipal`
+-- Estrutura para tabela `IdentidadePricipal`
 --
 
-CREATE TABLE `identidadeprincipal` (
-  `id` int(6) NOT NULL,
-  `nomeOf` varchar(100) NOT NULL,
-  `apelido` varchar(100) NOT NULL,
-  `sigla` varchar(8) NOT NULL,
-  `dataFundacao` datetime NOT NULL,
+CREATE TABLE `IdentidadePricipal` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `apelido` varchar(45) NOT NULL,
+  `sigla` varchar(10) NOT NULL,
+  `data_fundacao` date NOT NULL,
   `cep` varchar(8) NOT NULL,
   `estado` varchar(2) NOT NULL,
-  `cidade` varchar(90) NOT NULL,
-  `paleta` enum('cor1','cor2') NOT NULL,
-  `mascote` varchar(45) NOT NULL,
-  `escudo` blob NOT NULL,
-  `uniforme` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `cidade` varchar(45) NOT NULL,
+  `cor_principal` varchar(7) NOT NULL,
+  `macote` varchar(45) NOT NULL,
+  `escudo_time` blob NOT NULL,
+  `uniforme_time` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `jogador`
+-- Estrutura para tabela `Jogador`
 --
 
-CREATE TABLE `jogador` (
-  `id` int(6) NOT NULL,
-  `nome` varchar(90) NOT NULL,
-  `numero` int(2) NOT NULL,
-  `posicao` varchar(10) NOT NULL,
-  `nacionalidade` varchar(45) NOT NULL,
-  `dataNasc` datetime NOT NULL,
+CREATE TABLE `Jogador` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `numero` int(3) NOT NULL,
+  `posicao` varchar(15) NOT NULL,
+  `nascionalidade` varchar(45) NOT NULL,
+  `data_nascimento` date NOT NULL,
   `peso` decimal(3,2) NOT NULL,
   `altura` decimal(3,2) NOT NULL,
-  `dataContrato` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `data_contrato` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `noticia`
+-- Estrutura para tabela `Noticia`
 --
 
-CREATE TABLE `noticia` (
-  `id` int(6) NOT NULL,
-  `titulo` varchar(150) NOT NULL,
-  `resumo` varchar(1500) NOT NULL,
-  `image` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `Noticia` (
+  `id` int(11) NOT NULL,
+  `url` longblob NOT NULL,
+  `descricao` int(245) NOT NULL,
+  `img` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `Usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id` int(6) NOT NULL,
-  `nome` varchar(150) NOT NULL,
-  `email` varchar(300) NOT NULL,
-  `senha` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `Usuario` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(145) NOT NULL,
+  `senha` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `diretoria`
+-- Índices de tabela `Arena`
 --
-ALTER TABLE `diretoria`
+ALTER TABLE `Arena`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `ginasio`
+-- Índices de tabela `Comissao`
 --
-ALTER TABLE `ginasio`
+ALTER TABLE `Comissao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `historico`
+-- Índices de tabela `IdentidadePricipal`
 --
-ALTER TABLE `historico`
+ALTER TABLE `IdentidadePricipal`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `identidadeprincipal`
+-- Índices de tabela `Jogador`
 --
-ALTER TABLE `identidadeprincipal`
+ALTER TABLE `Jogador`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `jogador`
+-- Índices de tabela `Noticia`
 --
-ALTER TABLE `jogador`
+ALTER TABLE `Noticia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `noticia`
+-- Índices de tabela `Usuario`
 --
-ALTER TABLE `noticia`
+ALTER TABLE `Usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `diretoria`
+-- AUTO_INCREMENT de tabela `Arena`
 --
-ALTER TABLE `diretoria`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Arena`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `ginasio`
+-- AUTO_INCREMENT de tabela `Comissao`
 --
-ALTER TABLE `ginasio`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Comissao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `historico`
+-- AUTO_INCREMENT de tabela `IdentidadePricipal`
 --
-ALTER TABLE `historico`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `IdentidadePricipal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `identidadeprincipal`
+-- AUTO_INCREMENT de tabela `Jogador`
 --
-ALTER TABLE `identidadeprincipal`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Jogador`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `jogador`
+-- AUTO_INCREMENT de tabela `Noticia`
 --
-ALTER TABLE `jogador`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Noticia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `noticia`
+-- AUTO_INCREMENT de tabela `Usuario`
 --
-ALTER TABLE `noticia`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
