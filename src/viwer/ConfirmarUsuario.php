@@ -8,7 +8,7 @@ if (isset($_POST['userName'])) {
     } else {
         $userName = $mysqli->real_escape_string($_POST['userName']);
 
-        $sql_code = "SELECT * FROM Usuario WHERE nome = '$userName' OR email = '$userName'";
+        $sql_code = "SELECT * FROM usuario WHERE nome = '$userName' OR email = '$userName'";
         $sql_query = $mysqli->query($sql_code) or die("Erro no SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
@@ -24,6 +24,7 @@ if (isset($_POST['userName'])) {
             exit();
         } else {
             $erro = "Falha ao achar usuário ou usuário inválido";
+            header("Location: ../viwer/ConfimarUsuario.php");
         }
     }
 }
