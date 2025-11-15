@@ -7,7 +7,7 @@ function criarFooter() {
     footer.style.borderTop = '1px solid #4D3632';
     
     const container = document.createElement('div');
-    container.style.width = '100vw'; 
+    container.style.width = '89vw'; 
     container.style.margin = '0 auto';
     container.style.display = 'flex';
     container.style.justifyContent = ' center';
@@ -21,7 +21,7 @@ function criarFooter() {
         { texto: 'Resultados', href: '#' },
         { texto: 'Calendário', href: '#' },
         { texto: 'Regulamentos', href: '#' }
-    ]);
+    ]); 
     
     // Coluna EXPLORAR
     const explorar = criarColuna('EXPLORAR', [

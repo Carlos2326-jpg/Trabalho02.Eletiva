@@ -1,9 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +5,7 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/CodigoVerificacao.css">
-    <title>Codigo de Verificção</title>
+    <title>Código de Verificação</title>
 </head>
 
 <body>
@@ -19,7 +13,7 @@ if (!isset($_SESSION)) {
         <h1 id="title">RadarVôlei</h1>
     </header>
 
-    <img src="../public/Imagems/Notebook/FundoNotebook06Senha-removebg-preview.png" alt="" id="tanaka">
+    <img src="../public/Imagems/Notebook/FundoNotebook06Senha-removebg-preview.png" alt="Ilustração Tanaka" id="tanaka">
 
     <section class="container">
         <div class="header-block">
@@ -34,35 +28,40 @@ if (!isset($_SESSION)) {
 
                 <div class="form-content">
 
+                    <img src="../public/icones/perfil-de-usuario.png" alt="Ícone de usuário" class="user-icon">
+
                     <p class="instructions">
                         Enviamos um código de 6 dígitos para o email cadastrado.
                         Por favor, digite o código recebido:
                     </p>
 
-                    <p>Não recebeu o código?<a href="" id="link">Reenviar</a></p>
+                    <p>Não recebeu o código? <a href="#" id="link">Reenviar</a></p>
 
-                    <div id="bloc">
-                        <div id="bloc01">
-                            <input type="text" class="input">
-                            <input type="text" class="input">
-                            <input type="text" class="input">
+                    <form id="verification-form" action="../processos/Proc_CodigoVerificacao.php" method="POST">
+                        <div id="bloc">
+                            <div id="bloc01">
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                            </div>
+                            <div id="bloc02">
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                                <input type="text" class="input" maxlength="1" pattern="[0-9]" required>
+                            </div>
                         </div>
-                        <div id="bloc02">
-                            <input type="text" class="input">
-                            <input type="text" class="input">
-                            <input type="text" class="input">
-                        </div>
-                    </div>
-                    <a href="../viwer/RedefinirSenha.php" cla="button-link">
+                        
                         <button type="submit" class="submit-button">Continuar</button>
-                    </a>
+                    </form>
                 </div>
             </div>
         </section>
     </section>
 
-    <img src="../public/Imagems/Notebook/FundoNotebook07Senha-removebg-preview.png" alt="" id="img1">
-    <img src="../public/Imagems/Notebook/FundoNotebook08Senha-removebg-preview.png" alt="" id="img2">
+    <img src="../public/Imagems/Notebook/FundoNotebook07Senha-removebg-preview.png" alt="Decoração lateral esquerda" id="img1">
+    <img src="../public/Imagems/Notebook/FundoNotebook08Senha-removebg-preview.png" alt="Decoração lateral direita" id="img2">
+
+    <script src="../js/codigoVerificacao.js"></script>
 </body>
 
 </html>

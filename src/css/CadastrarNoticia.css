@@ -10,48 +10,51 @@
 body {
   background-color: var(--preto);
   color: var(--branco);
-  height: 70%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#section-bloc{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#section{
+#section {
   background-color: var(--branco);
-  width: 779.35px;
-  height: 730.37px;
+  width: 90%;
+  max-width: 779px;
+  min-height: 730px;
   border-radius: 20px;
   margin: 61px auto;
+  position: relative;
+  padding: 20px;
 }
 
-.return-icon {
+.return-link {
   position: absolute;
   top: 15px;
   left: 15px;
   width: 45px;
   height: 45px;
   cursor: pointer;
-} 
+}
+
+.return-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 60px;
+  gap: 30px;
 }
 
 .input-group {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  max-width: 400px;
-  margin-bottom: 30px;
+  max-width: 600px;
   position: relative;
 }
 
@@ -59,54 +62,57 @@ body {
   width: 40px;
   height: 40px;
   margin-right: 15px;
+  margin-top: 8px;
+  flex-shrink: 0;
 }
 
-#input-field,
-#input-title,
-#input-decricao {
-  flex: 1;  
+.input-field,
+.input-title,
+.input-descricao {
+  flex: 1;
   position: relative;
 }
 
-#input-field input {
-  width: 570.21px;
+.input-field input,
+.input-title input {
+  width: 100%;
   height: 56px;
   border: 1px solid var(--Azul);
   border-radius: 10px;
-  background-color: #33333353 ;
-  color: var(--branco);
+  background-color: rgba(51, 51, 51, 0.2);
+  color: var(--preto);
   padding: 0 15px;
   font-size: 16px;
   outline: none;
+  transition: all 0.3s ease;
 }
 
-#input-title input {
-  width: 570.21px;
-  height: 56px;
+.input-descricao textarea {
+  width: 100%;
+  height: 201px;
   border: 1px solid var(--Azul);
   border-radius: 10px;
-  background-color: #33333353 ;
-  color: var(--branco);
-  padding: 0 15px;
+  background-color: rgba(51, 51, 51, 0.2);
+  color: var(--preto);
+  padding: 15px;
   font-size: 16px;
   outline: none;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
 }
 
-#input-decricao input {
-  width: 570.21px;
-  height: 201.9px;
-  border: 1px solid var(--Azul);
-  border-radius: 10px;
-  background-color: #33333353 ;
-  color: var(--branco);
-  padding: 0 15px;
-  font-size: 16px;
-  outline: none;
+.input-field input:focus,
+.input-title input:focus,
+.input-descricao textarea:focus {
+  border-color: var(--Laranja);
+  background-color: rgba(51, 51, 51, 0.1);
 }
 
-#input-field label,
-#input-title label,
-#input-decricao label {
+.input-field label,
+.input-title label,
+.input-descricao label {
   position: absolute;
   top: 50%;
   left: 15px;
@@ -115,20 +121,27 @@ body {
   font-size: 16px;
   pointer-events: none;
   transition: all 0.3s ease;
+  background-color: transparent;
 }
 
-#input-field input:focus + label,
-#input-field input:not(:placeholder-shown) + label,
-#input-title input:focus + label,
-#input-title input:not(:placeholder-shown) + label,
-#input-decricao input:focus + label,
-#input-decricao input:not(:placeholder-shown) + label{
-  top: -0px;
+.input-descricao label {
+  top: 20px;
+  transform: none;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-title input:focus + label,
+.input-title input:not(:placeholder-shown) + label,
+.input-descricao textarea:focus + label,
+.input-descricao textarea:not(:placeholder-shown) + label {
+  top: -10px;
   left: 10px;
-  font-size: 16px;
-  background-color: #ffff;
-  color: var(--preto);
+  font-size: 14px;
+  background-color: var(--branco);
+  color: var(--Laranja);
   padding: 0 5px;
+  font-weight: bold;
 }
 
 #button-cadastro {
@@ -141,14 +154,19 @@ body {
   font-size: 24px;
   color: var(--branco);
   font-weight: bold;
-  box-shadow: -4px 3px 3px var(--preto);
+  box-shadow: -4px 3px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  display: block;
 }
 
 #button-cadastro:hover {
   background-color: #c75319;
-  color: #c9c9c9;
   transform: translateY(-2px);
-  box-shadow: -4px 5px 5px var(--preto);
+  box-shadow: -4px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+#button-cadastro:active {
+  transform: translateY(0);
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.3);
 }

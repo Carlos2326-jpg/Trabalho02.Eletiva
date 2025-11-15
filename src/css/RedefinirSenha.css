@@ -10,10 +10,12 @@
 body {
   background-color: var(--preto);
   color: var(--branco);
-  height: 70%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
 header {
@@ -21,17 +23,19 @@ header {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  padding-top: 25px;
 }
 
-#tanaka{
-  width:420px;
-  height: 594px;
-  margin-right: -40pc;
-  margin-top: -8pc;
+#tanaka {
+  width: 420px;
+  height: auto;
+  position: absolute;
+  right: 26pc; 
+  top: -21px;
+  z-index: 1;
 }
 
 #title {
-  margin-top: 25px;
   font-size: 36px;
   color: var(--Laranja);
 }
@@ -42,8 +46,9 @@ header {
   align-items: center;
   width: 100%;
   max-width: 600px;
+  margin-top: 50px;
   position: relative;
-  top: -23pc;
+  z-index: 1;
 }
 
 .header-block {
@@ -57,8 +62,8 @@ header {
   align-items: center;
   box-shadow: 0 0 10px var(--Azul);
   margin-bottom: -50px;
-  position: absolute;
-  top: -10%;
+  position: relative;
+  z-index: 3;
 }
 
 .header-block h2 {
@@ -70,26 +75,37 @@ header {
 
 .form-container {
   background-color: #2e2e2ed3;
-  
-  width: 600px;
-  height: 500px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 500px;
   border: 1px solid var(--Azul);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 15px var(--Azul);
+  position: relative;
 }
 
-#form{
+#form {
   padding-top: 40px;
+  position: relative;
 }
 
-.return-icon {
+.return-link {
   position: absolute;
   top: 15px;
   left: 15px;
+  z-index: 3;
+}
+
+.return-icon {
   width: 45px;
   height: 45px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.return-icon:hover {
+  transform: scale(1.1);
 }
 
 .form-content {
@@ -97,6 +113,8 @@ header {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  gap: 25px;
+  width: 100%;
 }
 
 .user-icon {
@@ -110,13 +128,12 @@ header {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  margin-bottom: 30px;
   position: relative;
 }
 
 .input-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-right: 15px;
 }
 
@@ -128,13 +145,19 @@ header {
 .input-field input {
   width: 100%;
   height: 56px;
-  border: 1px solid var(--Azul);
+  border: 2px solid var(--Azul);
   border-radius: 10px;
   background-color: #333333;
   color: var(--branco);
-  padding: 0 15px;
+  padding: 0 50px 0 15px;
   font-size: 16px;
   outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field input:focus {
+  border-color: var(--Verde_Agua);
+  box-shadow: 0 0 10px var(--Verde_Agua);
 }
 
 .input-field label {
@@ -150,14 +173,71 @@ header {
 
 .input-field input:focus + label,
 .input-field input:not(:placeholder-shown) + label {
-  top: -0px;
+  top: -5px;
   left: 10px;
-  font-size: 16px;
-  background-color: #2e2e2ed3;
+  font-size: 14px;
+  background-color: #2e2e2e;
   color: var(--Verde_Agua);
   padding: 0 5px;
 }
-.submit-button, a {
+
+/* Botão para mostrar/ocultar senha */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+/* Requisitos da senha */
+#password-requirements {
+  background-color: #333333;
+  border: 1px solid var(--Azul);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+#password-requirements p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--Verde_Agua);
+}
+
+#password-requirements ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#password-requirements li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--cinza);
+  transition: color 0.3s ease;
+}
+
+#password-requirements li.valid {
+  color: var(--Verde_Agua);
+}
+
+#password-requirements li.invalid {
+  color: #ff4444;
+}
+
+/* Botão de submit */
+.submit-button {
   width: 100%;
   max-width: 373px;
   height: 45px;
@@ -168,23 +248,92 @@ header {
   color: var(--branco);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
-.submit-button:hover {
+.submit-button:hover:not(:disabled) {
   background-color: var(--Laranja_hover);
-  color: #dad7d7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-#img1{
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  background-color: var(--cinza);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Mensagens de erro */
+.error-message {
+  color: #ff4444;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.input-field.error input {
+  border-color: #ff4444;
+  box-shadow: 0 0 10px #ff4444;
+}
+
+.input-field.success input {
+  border-color: var(--Verde_Agua);
+  box-shadow: 0 0 10px var(--Verde_Agua);
+}
+
+/* Imagens decorativas */
+#img1 {
   width: 221.59px;
-  height: 480.44ps;
-  margin-left: -88.7%;
-  margin-top: -24%;
+  height: auto;
+  position: absolute;
+  left: -20px;
+  bottom: 5px;
+  z-index: 1;
 }
 
 #img2 {
   width: 222.59px;
-  height: 521.44ps;
-  margin-right: -88%;
-  margin-top: -28.5%;
+  height: auto;
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+  z-index: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+  
+  .form-container {
+    min-height: 450px;
+  }
+  
+  #tanaka, #img1, #img2 {
+    display: none;
+  }
+  
+  .header-block {
+    width: 200px;
+    height: 80px;
+  }
+  
+  .header-block h2 {
+    font-size: 28px;
+  }
+  
+  .input-group {
+    max-width: 300px;
+  }
+  
+  .user-icon {
+    width: 60px;
+    height: 60px;
+  }
 }

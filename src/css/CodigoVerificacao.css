@@ -10,10 +10,12 @@
 body {
   background-color: var(--preto);
   color: var(--branco);
-  height: 70%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
 header {
@@ -21,17 +23,19 @@ header {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  padding-top: 25px;
 }
 
-#tanaka{
-  width:420px;
-  height: 594px;
-  margin-right: -40pc;
-  margin-top: -8pc;
+#tanaka {
+  width: 420px;
+  height: auto;
+  position: absolute;
+  right: 26pc; 
+  top: -21px;
+  z-index: 1;
 }
 
 #title {
-  margin-top: 25px;
   font-size: 36px;
   color: var(--Laranja);
 }
@@ -42,8 +46,9 @@ header {
   align-items: center;
   width: 100%;
   max-width: 600px;
+  margin-top: 50px;
   position: relative;
-  top: -23pc;
+  z-index: 1;
 }
 
 .header-block {
@@ -57,8 +62,8 @@ header {
   align-items: center;
   box-shadow: 0 0 10px var(--Azul);
   margin-bottom: -50px;
-  position: absolute;
-  top: -10%;
+  position: relative;
+  z-index: 3;
 }
 
 .header-block h2 {
@@ -70,34 +75,21 @@ header {
 
 .form-container {
   background-color: #2e2e2ed3;
-
-  width: 600px;
-  height: 500px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 500px;
   border: 1px solid var(--Azul);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 15px var(--Azul);
+  position: relative;
 }
 
-#form{
-  padding-top: 40px;
-}
-
-.return-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-}
-
-.form-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
+.user-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+} 
 
 .instructions {
   text-align: center;
@@ -108,37 +100,101 @@ header {
   line-height: 1.5;
 }
 
-#link{
-    color: var(--Laranja);
+#form {
+  padding-top: 40px;
+  position: relative;
 }
 
-#bloc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+.return-link {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
 }
 
-#bloc01,
-#bloc02{
-    padding: 10px 20px;
+.return-icon {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.input{
-    width: 37.35px;
-    height: 56px;
-    background-color: #333333;
-    padding: 10px;
-    border: 1px solid var(--Azul);
-    border-radius: 10px;    
-    padding: 10px;
-    font-size: 16px;
-    color: var(--branco);
+.return-icon:hover {
+  transform: scale(1.1);
 }
 
-.submit-button, 
-.button-link{
-  width: 373.32px;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: var(--branco);
+}
+
+#link {
+  color: var(--Laranja);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#link:hover {
+  color: var(--Laranja_hover);
+  text-decoration: underline;
+}
+
+/* Estilos para os inputs do código */
+#bloc {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+#bloc01, #bloc02 {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  width: 50px;
+  height: 60px;
+  border: 2px solid var(--Azul);
+  border-radius: 10px;
+  background-color: #333333;
+  color: var(--branco);
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--Verde_Agua);
+  box-shadow: 0 0 10px var(--Verde_Agua);
+  transform: scale(1.05);
+}
+
+.input:valid {
+  border-color: var(--Verde_Agua);
+}
+
+/* Botão de submit */
+#verification-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.submit-button {
+  width: 100%;
   max-width: 373px;
   height: 45px;
   background-color: var(--Laranja);
@@ -148,23 +204,69 @@ header {
   color: var(--branco);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .submit-button:hover {
   background-color: var(--Laranja_hover);
-  color: #dad7d7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-#img1{
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* Imagens decorativas */
+#img1 {
   width: 221.59px;
-  height: 480.44ps;
-  margin-left: -88.7%;
-  margin-top: -24%;
+  height: auto;
+  position: absolute;
+  left: -20px;
+  bottom: 5px;
+  z-index: 1;
 }
 
 #img2 {
   width: 222.59px;
-  height: 521.44ps;
-  margin-right: -88%;
-  margin-top: -28.5%;
+  height: auto;
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+  z-index: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+  
+  .form-container {
+    min-height: 400px;
+  }
+  
+  #tanaka, #img1, #img2 {
+    display: none;
+  }
+  
+  .header-block {
+    width: 200px;
+    height: 80px;
+  }
+  
+  .header-block h2 {
+    font-size: 28px;
+  }
+  
+  .input {
+    width: 40px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  #bloc {
+    gap: 10px;
+  }
 }

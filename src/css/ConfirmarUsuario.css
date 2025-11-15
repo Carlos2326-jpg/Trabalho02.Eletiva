@@ -10,10 +10,12 @@
 body {
   background-color: var(--preto);
   color: var(--branco);
-  height: 70%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
 header {
@@ -21,19 +23,23 @@ header {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  padding-top: 25px;
 }
 
-#tanaka{
-  width:420px;
-  height: 594px;
-  margin-right: -40pc;
-  margin-top: -8pc;
+#tanaka {
+  width: 420px;
+  height: auto;
+  position: absolute;
+  left: -120px; 
+  top: 50px;
+  z-index: 1;
 }
 
 #title {
-  margin-top: 25px;
   font-size: 36px;
   color: var(--Laranja);
+  z-index: 2;
+  position: relative;
 }
 
 .container {
@@ -43,7 +49,8 @@ header {
   width: 100%;
   max-width: 600px;
   position: relative;
-  top: -23pc;
+  margin-top: 50px;
+  z-index: 2;
 }
 
 .header-block {
@@ -57,8 +64,8 @@ header {
   align-items: center;
   box-shadow: 0 0 10px var(--Azul);
   margin-bottom: -50px;
-  position: absolute;
-  top: -10%;
+  position: relative;
+  z-index: 3;
 }
 
 .header-block h2 {
@@ -70,25 +77,37 @@ header {
 
 .form-container {
   background-color: #2e2e2ed3;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 500px;
   border: 1px solid var(--Azul);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 15px var(--Azul);
+  position: relative;
 }
 
-#form{
+#form {
   padding-top: 40px;
+  position: relative;
 }
 
-.return-icon {
+.return-link {
   position: absolute;
   top: 15px;
   left: 15px;
+  z-index: 4;
+}
+
+.return-icon {
   width: 45px;
   height: 45px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.return-icon:hover {
+  transform: scale(1.1);
 }
 
 .form-content {
@@ -107,7 +126,7 @@ header {
 .instructions {
   text-align: center;
   margin-bottom: 30px;
-  width: 256.02px;
+  width: 214px;
   color: var(--branco);
   font-size: 18px;
   line-height: 1.5;
@@ -119,7 +138,6 @@ header {
   width: 100%;
   max-width: 400px;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .input-icon {
@@ -143,6 +161,12 @@ header {
   padding: 0 15px;
   font-size: 16px;
   outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field input:focus {
+  border-color: var(--Verde_Agua);
+  box-shadow: 0 0 8px var(--Verde_Agua);
 }
 
 .input-field label {
@@ -158,14 +182,15 @@ header {
 
 .input-field input:focus + label,
 .input-field input:not(:placeholder-shown) + label {
-  top: -0px;
+  top: -5px;
   left: 10px;
-  font-size: 16px;
-  background-color: #2e2e2ed3;
+  font-size: 14px;
+  background-color: #2e2e2e;
   color: var(--Verde_Agua);
   padding: 0 5px;
 }
-.submit-button, a {
+
+.submit-button {
   width: 100%;
   max-width: 373px;
   height: 45px;
@@ -176,23 +201,54 @@ header {
   color: var(--branco);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 .submit-button:hover {
   background-color: var(--Laranja_hover);
-  color: #dad7d7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#img1{
+#img1 {
   width: 221.59px;
-  height: 480.44ps;
-  margin-left: -88.7%;
-  margin-top: -24%;
+  height: auto;
+  position: absolute;
+  left: -80px;
+  bottom: -50px;
+  z-index: 1;
 }
 
 #img2 {
   width: 222.59px;
-  height: 521.44ps;
-  margin-right: -88%;
-  margin-top: -28.5%;
+  height: auto;
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  z-index: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #tanaka, #img1, #img2 {
+    display: none;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .form-container {
+    height: auto;
+    min-height: 450px;
+  }
+  
+  .header-block {
+    width: 200px;
+    height: 90px;
+  }
+  
+  .header-block h2 {
+    font-size: 28px;
+  }
 }
