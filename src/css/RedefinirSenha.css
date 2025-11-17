@@ -251,7 +251,8 @@ header {
   margin-top: 20px;
 }
 
-.submit-button:hover:not(:disabled) {
+
+.submit-button:hover {
   background-color: var(--Laranja_hover);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);

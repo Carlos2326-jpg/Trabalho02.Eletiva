@@ -1,3 +1,9 @@
+<?php 
+
+include_once("../processos/verificaLogin.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
