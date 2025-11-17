@@ -1,0 +1,277 @@
+@import url(Global.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  min-height: 100vh;
+}
+
+#section-bloc {
+  display: flex;
+  margin: 39px 20px;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.section-colun {
+  background-color: var(--Marrom);
+  width: 179.22px;
+  height: 1226.16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.section-colun img {
+  width: 159.39px;
+  margin: 20px 10px;
+  object-fit: contain;
+}
+
+#section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#section-menu {
+  width: 805.81px;
+  height: 109.81px;
+  background-color: var(--Marrom);
+  margin: 19px auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#section-menu a {
+  padding-right: 40px;
+  text-decoration: none;
+  color: var(--branco);
+  transition: color 0.3s ease;
+}
+
+#section-menu a:hover {
+  color: var(--Laranja);
+}
+
+#section-float {
+  display: flex;
+}
+
+#section-home {
+    width: 56%;
+    padding: 2%;
+    margin: 1%;
+    background-color: var(--Marrom);
+    border-radius: 8px;
+    display: flex;
+}
+
+
+#carousel-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.block-content {
+    align-items: center; 
+    gap: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.block-content img {
+    max-width: 150px; 
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.block-clubs h2 {
+    padding-left: 42%;
+}
+
+.bloc-g {
+  background-color: var(--Marrom);
+  width: 805.81px;
+  height: 298.82px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title{
+  color: var(--branco);
+  font-size: 20px;
+  font-weight: bold;
+  width: 395.03px;
+  height: 48px;
+  border-radius: 30px;  
+  background-color: var(--Azul);
+  margin-top: 4px;
+  text-align: center;
+  margin-left: 30%;
+}
+
+#sectio-bloc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloc{
+  justify-content: center;
+  margin: auto 72px;
+}
+
+.sub-title{
+  color: var(--branco);
+  font-size: 20px;
+  font-weight: bold;
+  width: 304.35px;
+  height: 41.32px;
+  border-radius: 30px;  
+  background-color: var(--Azul);
+  margin-top: 4px;
+  text-align: center;
+}
+
+.tabela{
+  width: 277.19px;
+  height: 162.52px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.bloc-m {
+  background-color: var(--Marrom);
+  width: 458.99px;
+  height: 216.95px;
+  margin: 20px;
+}
+
+#foto01,
+#foto02{
+  width: 116.59px;
+  height: 194.81px;
+  border-radius: 10px;
+  margin: 20px 10px;
+}
+
+#foto01{
+  float: left;
+}
+
+#foto02{
+  float: right;
+}
+
+#bloc-p {
+  background-color: var(--Marrom);
+  width: 309px;
+  height: 453.08px;
+  margin: 20px;
+}
+
+#foto{
+  width: 282.92px;
+  height: 177.1px;
+  border-radius: 10px;
+  margin: 15px; 
+}
+
+h3, 
+p{
+  text-align: justify;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.bloc-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--branco);
+  width: 100%;
+  height: 100%;
+}
+
+.quadra-geografia h2 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.quadra-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+
+.quadra-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #555;
+}
+
+.quadra-info-block h3 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.quadra-info-block ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.fundamentos-essenciais h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+}
+
+.fundamento-item {
+    padding: 15px;
+}
+
+.fundamento-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.fundamento-item h3 .emoji {
+    margin-right: 8px;
+    font-size: 1.4em;
+}
+
+.fundamento-item p {
+    margin: 5px 0;
+    line-height: 1.4;
+    font-size: 0.95em;
+}
+
+.fundamento-item strong {
+    color: #ccc;
+}

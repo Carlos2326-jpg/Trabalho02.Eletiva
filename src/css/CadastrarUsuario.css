@@ -10,7 +10,6 @@
 body {
   background-color: var(--preto);
   color: var(--branco);
-  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,8 +41,6 @@ header {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  position: relative;
-  top: -23pc;
 }
 
 .header-block {
@@ -58,7 +55,6 @@ header {
   box-shadow: 0 0 10px var(--Azul);
   margin-bottom: -50px;
   position: absolute;
-  top: -10%;
 }
 
 .header-block h2 {
@@ -157,7 +153,7 @@ header {
   color: var(--Verde_Agua);
   padding: 0 5px;
 }
-.submit-button, a {
+.submit-button{
   width: 100%;
   max-width: 373px;
   height: 45px;
@@ -168,6 +164,11 @@ header {
   color: var(--branco);
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+#return img {
+  margin-left: 34%;
+  margin-top: 5%;
 }
 
 #forms-links {

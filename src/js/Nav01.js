@@ -22,10 +22,10 @@ function criarNav01() {
     navList.style.alignItems = 'center';
 
     const menuItems = [
-        { texto: 'Home', href: '#' },
+        { texto: 'Home', href: '../viwer/Home.php' },
         { texto: 'Mapa do Vôlei', href: '../viwer/MapaVolei.php' },
         { texto: 'Mapa dos Clubes', href: '../viwer/MapaClube.php' },
-        { texto: 'Regulamentos do Vôlei', href: '#' }
+        { texto: 'Regulamentos do Vôlei', href: '../viwer/TelaRegulamentos.php' }
     ];
 
     menuItems.forEach(item => {
