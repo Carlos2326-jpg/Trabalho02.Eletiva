@@ -9,7 +9,7 @@ function criarHeader() {
     header.style.zIndex = '1000';
 
     const container = document.createElement('div');
-    container.style.width = '100aaaaaaaaaaaaaaavw';
+    container.style.width = '100vw';
     container.style.height = '123.21px';
     container.style.display = 'flex';
     container.style.justifyContent = 'space-between';

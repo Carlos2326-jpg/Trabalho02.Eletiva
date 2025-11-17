@@ -6,7 +6,7 @@ function criarNav01() {
     nav.style.border = '1px solid #000000ff';
     
     const container = document.createElement('div');
-    container.style.width = '100vw';
+    container.style.width = '   100vw';
     container.style.height = '86.54px'
     container.style.border = '1px solid #0000'; 
     container.style.display = 'flex';

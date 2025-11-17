@@ -25,7 +25,7 @@
 
         <section class="form-container">
             <div id="form">
-                <form action="src/processos/Proc_login.php" method="POST">
+                <form action="../Trabalho02.Eletiva/src/processos/Proc_login.php" method="POST">
                     <div class="form-content">
 
                         <div class="input-group">
